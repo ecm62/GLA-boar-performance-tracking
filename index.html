@@ -43,6 +43,7 @@
             color: #1E3A8A; font-weight: 800; font-size: 20px; margin-bottom: 15px;
         }
         
+        /* 電腦端：5 個方塊併排單行 */
         .status-grid {
             display: grid; 
             grid-template-columns: repeat(5, 1fr); 
@@ -72,6 +73,7 @@
         tr:hover { background-color: #F8FAFC; }
         .hl-numeric { font-weight: bold; color: #2563EB; }
 
+        /* 手機端美化：上三、下二排版 */
         @media (max-width: 768px) {
             .status-grid { grid-template-columns: repeat(6, 1fr); }
             .box-1, .box-2, .box-3 { grid-column: span 2; }
@@ -132,6 +134,7 @@
 </div>
 
 <script>
+    // 鎖定第 10 版正確運行的後端 GAS 網址
     const API_URL = "https://script.google.com/macros/s/AKfycbzclqTypZTPTfgfOYw-OmyNhGelYUm7iKxDTZLBVP7huzW7t47UUOwbOtQrSf3bGWAy/exec"; 
 
     function doSearch() {
@@ -171,7 +174,7 @@
                 document.getElementById('gradeModule').style.display = 'block';
             }
             
-            // 渲染 9 欄採精歷史
+            // 渲染 9 欄採精歷史表格
             if (json.historyData && json.historyData.length > 0) {
                 const tbody = document.getElementById('tableBody');
                 tbody.innerHTML = json.historyData.map(row => `
